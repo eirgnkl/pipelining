@@ -1,0 +1,33 @@
+host: hpc-build01.scidom.de
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+all              1
+find_best        1
+merge            1
+total            3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Dec  9 13:47:10 2024]
+localrule merge:
+    output: data/reports/merged_results.tsv
+    jobid: 2
+    reason: Missing output files: data/reports/merged_results.tsv
+    resources: tmpdir=/tmp
+
+[Mon Dec  9 13:47:12 2024]
+Error in rule merge:
+    jobid: 2
+    output: data/reports/merged_results.tsv
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-09T134709.488445.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

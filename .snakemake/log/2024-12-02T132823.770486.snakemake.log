@@ -1,0 +1,37 @@
+host: hpc-build01.scidom.de
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+all               1
+find_best         1
+merge             1
+run_method        2
+total             5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Dec  2 13:28:25 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    jobid: 2
+    reason: Missing output files: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=da2268bbbc
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file /ictstr01/home/icb/eirini.giannakoulia/vitatrack/snakefile, line 31:
+Command 'set -euo pipefail;  /ictstr01/home/icb/eirini.giannakoulia/tools/apps/mamba/envs/scRNA-env/bin/python3.12 /ictstr01/home/icb/eirini.giannakoulia/vitatrack/.snakemake/scripts/tmpv_p77pw6.run_method.py' died with <Signals.SIGINT: 2>.
+[Mon Dec  2 13:36:21 2024]
+Error in rule run_method:
+    jobid: 2
+    output: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+
+Complete log: .snakemake/log/2024-12-02T132823.770486.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,46 @@
+host: hpc-build01.scidom.de
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+all               1
+find_best         1
+merge             1
+run_method        2
+total             5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Mon Dec  2 11:25:12 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    jobid: 2
+    reason: Missing output files: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=da2268bbbc
+    resources: tmpdir=/tmp
+
+[Mon Dec  2 11:25:12 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv
+    jobid: 1
+    reason: Missing output files: data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=c39d77ecca
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule run_method in file /ictstr01/home/icb/eirini.giannakoulia/vitatrack/snakefile, line 26:
+Job 2  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv (missing locally, parent dir not present)
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule run_method in file /ictstr01/home/icb/eirini.giannakoulia/vitatrack/snakefile, line 26:
+Job 1  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv (missing locally, parent dir not present)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-02T112510.033584.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

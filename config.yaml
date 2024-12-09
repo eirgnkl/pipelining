@@ -1,0 +1,6 @@
+TASKS:
+  'ridge_regression':
+    input_rna: /lustre/groups/ml01/workspace/anastasia.litinetskaya/code/vitatrack/datasets/V11L12-038_A1.RNA_MOSCOT_paired_hvg.h5ad
+    input_metabolomics: /lustre/groups/ml01/workspace/anastasia.litinetskaya/code/vitatrack/datasets/V11L12-038_A1.MSI_MOSCOT_paired_hvg.h5ad
+    methods:
+      ridge: params/ridge_params.tsv

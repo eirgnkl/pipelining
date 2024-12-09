@@ -1,0 +1,53 @@
+host: hpc-build01.scidom.de
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+all               1
+find_best         1
+merge             1
+run_method        2
+total             5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Mon Dec  2 12:53:23 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    jobid: 2
+    reason: Missing output files: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=da2268bbbc
+    resources: tmpdir=/tmp
+
+[Mon Dec  2 12:53:23 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv
+    jobid: 1
+    reason: Missing output files: data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=c39d77ecca
+    resources: tmpdir=/tmp
+
+RuleException:
+CalledProcessError in file /ictstr01/home/icb/eirini.giannakoulia/vitatrack/snakefile, line 32:
+Command 'set -euo pipefail;  /ictstr01/home/icb/eirini.giannakoulia/tools/apps/mamba/envs/scRNA-env/bin/python3.12 /ictstr01/home/icb/eirini.giannakoulia/vitatrack/.snakemake/scripts/tmpx4l3u8pe.run_method.py' returned non-zero exit status 1.
+[Mon Dec  2 12:57:36 2024]
+Error in rule run_method:
+    jobid: 1
+    output: data/reports/ridge_regression/ridge/c39d77ecca/accuracy.tsv
+
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file /ictstr01/home/icb/eirini.giannakoulia/vitatrack/snakefile, line 32:
+Command 'set -euo pipefail;  /ictstr01/home/icb/eirini.giannakoulia/tools/apps/mamba/envs/scRNA-env/bin/python3.12 /ictstr01/home/icb/eirini.giannakoulia/vitatrack/.snakemake/scripts/tmplpx8e98r.run_method.py' died with <Signals.SIGINT: 2>.
+[Mon Dec  2 12:58:41 2024]
+Error in rule run_method:
+    jobid: 2
+    output: data/reports/ridge_regression/ridge/da2268bbbc/accuracy.tsv
+
+Complete log: .snakemake/log/2024-12-02T125321.523443.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

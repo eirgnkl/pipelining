@@ -1,0 +1,78 @@
+host: hpc-build01.scidom.de
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+all               1
+find_best         1
+merge             1
+run_method        2
+total             5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec 10 00:18:51 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/d287c70661/accuracy.tsv
+    jobid: 2
+    reason: Missing output files: data/reports/ridge_regression/ridge/d287c70661/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=d287c70661
+    resources: tmpdir=/tmp
+
+[Tue Dec 10 00:26:22 2024]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec 10 00:26:22 2024]
+localrule run_method:
+    output: data/reports/ridge_regression/ridge/c63ec0f005/accuracy.tsv
+    jobid: 1
+    reason: Missing output files: data/reports/ridge_regression/ridge/c63ec0f005/accuracy.tsv
+    wildcards: task=ridge_regression, method=ridge, hash=c63ec0f005
+    resources: tmpdir=/tmp
+
+[Tue Dec 10 00:29:53 2024]
+Finished job 1.
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec 10 00:29:53 2024]
+localrule merge:
+    input: data/reports/ridge_regression/ridge/c63ec0f005/accuracy.tsv, data/reports/ridge_regression/ridge/d287c70661/accuracy.tsv
+    output: data/reports/merged_results.tsv
+    jobid: 4
+    reason: Missing output files: data/reports/merged_results.tsv; Input files updated by another job: data/reports/ridge_regression/ridge/c63ec0f005/accuracy.tsv, data/reports/ridge_regression/ridge/d287c70661/accuracy.tsv
+    resources: tmpdir=/tmp
+
+[Tue Dec 10 00:30:00 2024]
+Finished job 4.
+3 of 5 steps (60%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec 10 00:30:00 2024]
+localrule find_best:
+    input: data/reports/merged_results.tsv
+    output: data/reports/best_results.tsv
+    jobid: 3
+    reason: Missing output files: data/reports/best_results.tsv; Input files updated by another job: data/reports/merged_results.tsv
+    resources: tmpdir=/tmp
+
+[Tue Dec 10 00:30:01 2024]
+Error in rule find_best:
+    jobid: 3
+    input: data/reports/merged_results.tsv
+    output: data/reports/best_results.tsv
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-10T001849.642994.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
