@@ -1,3 +1,6 @@
-corr	alpha	hash	task	method_params
-0.6417442139428228	1.0	c63ec0f005	ridge_regression	
-0.4842152065377451	0.1	d287c70661	ridge_regression	
+corr	alpha	hash	task	method_params	method_name
+0.6417442139428228	1.0	1e868c74da	vitatrack_dataset		ridge
+0.4842152065377451	0.1	9ab040b1ed	vitatrack_dataset		ridge
+0.8359214087537001	1.0	535604baa1	vitatrack_dataset		lasso
+0.8439900428574731	0.1	eb309f4b16	vitatrack_dataset		lasso
+0.0010256944748515		9ff633f9a1	vitatrack_dataset		linear

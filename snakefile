@@ -14,13 +14,33 @@ hashes = tasks_df['hash'].unique()
 methods = tasks_df['method'].unique()
 tasks = tasks_df['task'].unique()
 
+# rule all:
+#     input:
+#         expand('data/reports/{task}/{method}/{hash}/accuracy.tsv', 
+#                task=tasks_df['task'].unique(), 
+#                method=tasks_df['method'].unique(), 
+#                hash=tasks_df['hash'].unique()),
+#         'data/reports/best_results.tsv'        
+
 rule all:
     input:
-        expand('data/reports/{task}/{method}/{hash}/accuracy.tsv', 
-               task=tasks_df['task'].unique(), 
-               method=tasks_df['method'].unique(), 
-               hash=tasks_df['hash'].unique()),
+        [
+            expand(
+                'data/reports/{task}/{method}/{hash}/accuracy.tsv',
+                task=tasks_df['task'].unique(),
+                method=[method],
+                hash=tasks_df[tasks_df['method'] == method]['hash'].unique()
+            )
+            for method in tasks_df['method'].unique()
+        ],
         'data/reports/best_results.tsv'
+        
+#add new rule for dataset preprocessing
+#1. add feature selection as a column in the create tasks df
+#2. identify unique modes
+#3. prepare and store datasets accordingly
+#4. add correct input ds on the downstream tasks
+
 
 rule run_method:
     output:

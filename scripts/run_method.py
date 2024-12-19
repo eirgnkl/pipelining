@@ -8,10 +8,14 @@ import ast
 
 # Import all method scripts
 from ridge import run_ridge_reg
+from linear import run_linreg
+from lasso import run_lasso
 
 # Dictionary mapping method names to their functions - connect config->smk->run_methods->function.py 
 METHOD_MAP = {
-    'ridge': dict(function=run_ridge_reg, mode='paired')
+    'ridge': dict(function=run_ridge_reg, mode='paired'),
+    'lasso': dict(function=run_lasso, mode='paired'),
+    'linear': dict(function=run_linreg, mode='paired')
 }
 
 # Load parameters from Snakemake
@@ -44,4 +48,5 @@ if method_mode == 'paired':
 result_df['hash'] = hash_id
 result_df['task'] = task
 result_df['method_params'] = method_params
+result_df['method_name'] = method
 result_df.to_csv(output_file, sep='\t', index=False)
